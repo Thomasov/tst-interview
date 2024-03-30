@@ -36,12 +36,6 @@ def runProblem2(): Unit =
     Promotion("P3", Seq("P1")), // P3 is not combinable with P1
     Promotion("P4", Seq("P2")), // P4 is not combinable with P2
     Promotion("P5", Seq("P2")) // P5 is not combinable with P2
-
-    // P1 can be combined with promotions P2, P4, and P5
-    // P2 can be combined with promotions P1, P3, and P5
-    // P3 can be combined with promotions P2, P4, and P5
-    // P4 can be combined with promotions P1, P3, and P5
-    // P5 can be combined with promotions P1, P3, and P4
   )
 
   println("All combinable promotions")
