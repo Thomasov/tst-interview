@@ -3,9 +3,11 @@ import com.tst.functions._
 
 @main def main(): Unit =
   runProblem1()
+  println("----------------------------------")
   runProblem2()
 
 def runProblem1(): Unit =
+  println("Problem 1")
   val rates: Seq[Rate] = Seq(
     Rate("M1", "Military"),
     Rate("M2", "Military"),
@@ -27,12 +29,24 @@ def runProblem1(): Unit =
   getBestGroupPrices(rates, cabinPrices).foreach(println)
 
 def runProblem2(): Unit =
+  println("Problem 2")
   val allPromotions: Seq[Promotion] = Seq(
     Promotion("P1", Seq("P3")), // P1 is not combinable with P3
     Promotion("P2", Seq("P4", "P5")), // P2 is not combinable with P4 and P5
     Promotion("P3", Seq("P1")), // P3 is not combinable with P1
     Promotion("P4", Seq("P2")), // P4 is not combinable with P2
     Promotion("P5", Seq("P2")) // P5 is not combinable with P2
+
+    // P1 can be combined with promotions P2, P4, and P5
+    // P2 can be combined with promotions P1, P3, and P5
+    // P3 can be combined with promotions P2, P4, and P5
+    // P4 can be combined with promotions P1, P3, and P5
+    // P5 can be combined with promotions P1, P3, and P4
   )
 
+  println("All combinable promotions")
   allCombinablePromotions(allPromotions).foreach(println)
+  println("\nCombinable promotions for P1")
+  combinablePromotions("P1", allPromotions).foreach(println)
+  println("\nCombinable promotions for P3")
+  combinablePromotions("P3", allPromotions).foreach(println)
